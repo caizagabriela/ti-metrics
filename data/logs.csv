@@ -1,0 +1,7 @@
+timestamp,ip,usuario,metodo,ruta,estado
+2026-10-01 08:30:00,8.8.8.8,Ana,GET,/login,200
+2026-10-01 08:32:00,1.1.1.1,Luis,POST,/login,500
+2026-10-01 08:35:00,208.67.222.222,Pedro,GET,/dashboard,200
+2026-10-01 08:40:00,1.1.1.1,Luis,GET,/api/users,500
+2026-10-01 08:45:00,8.8.8.8,Maria,GET,/reports,404
+2026-10-01 08:50:00,8.8.8.8,Ana,GET,/login,200

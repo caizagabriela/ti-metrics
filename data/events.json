@@ -1,0 +1,26 @@
+[
+  {
+    "event_id": 1,
+    "ip": "192.168.1.10",
+    "tipo": "login",
+    "usuario": "Ana"
+  },
+  {
+    "event_id": 2,
+    "ip": "192.168.1.15",
+    "tipo": "error",
+    "usuario": "Luis"
+  },
+  {
+    "event_id": 3,
+    "ip": "192.168.1.20",
+    "tipo": "login",
+    "usuario": "Pedro"
+  },
+  {
+    "event_id": 2,
+    "ip": "192.168.1.15",
+    "tipo": "error",
+    "usuario": "Luis"
+  }
+]

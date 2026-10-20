@@ -1,0 +1,32 @@
+{
+    "total_logs": 6,
+    "errores_http_500": 2,
+    "porcentaje_errores_500": 33.33,
+    "eventos_unicos": 3,
+    "ips_criticas": [
+        "1.1.1.1"
+    ],
+    "geolocalizacion": [
+        {
+            "ip": "8.8.8.8",
+            "estado": "ok",
+            "pais": "United States",
+            "region": "Virginia",
+            "ciudad": "Ashburn"
+        },
+        {
+            "ip": "1.1.1.1",
+            "estado": "ok",
+            "pais": "Australia",
+            "region": "Queensland",
+            "ciudad": "South Brisbane"
+        },
+        {
+            "ip": "208.67.222.222",
+            "estado": "ok",
+            "pais": "United States",
+            "region": "California",
+            "ciudad": "San Jose"
+        }
+    ]
+}
