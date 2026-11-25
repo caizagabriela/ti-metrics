@@ -170,3 +170,99 @@ El proceso permitió comprender que publicar un proyecto no consiste únicamente
 La solución final quedó verificada mediante tres resultados: el código del Hito 1 estaba publicado en GitHub con su descripción completa, las pruebas mostraron "4 passed" y Git indicó que el repositorio estaba sincronizado con GitHub y que no había cambios pendientes.
 
 Esta práctica permitió reforzar conocimientos de Python, pruebas automatizadas con "pytest", commits, ramas, GitHub y resolución de conflictos. La publicación del proyecto y los resultados finales constituyen la evidencia de cierre de este hito.
+
+REGISTROS DE PROMPTS — HITO 2
+
+Registro de Prompt #7
+
+- Fecha: 18/11/2026
+
+- Módulo/Función: Proyecto TI-Metrics — elaboración y documentación del diagrama UML de clases.
+
+- Prompt Enviado:
+  
+  "Actúa como tutor especializado en Python, programación orientada a objetos e ingeniería de software. Necesito que me ayudes a elaborar el diagrama UML correspondiente al Hito 2 de mi proyecto académico TI-Metrics. Guíame paso a paso para representar las clases BaseLogParser, CSVLogParser y JSONLogParser, incluyendo sus atributos, métodos y relaciones de herencia. Explícame cómo utilizar Mermaid para generar el diagrama, cómo crear el archivo Markdown correspondiente y cómo obtener una imagen PNG para incorporarla a la carpeta docs del proyecto. Explícame cada elemento del diagrama para que pueda comprenderlo y defenderlo oralmente. No te limites a darme instrucciones: ayúdame a entender el propósito de cada paso."
+
+- Respuesta de la IA:
+  
+  La asistencia se orientó a identificar las clases principales de la arquitectura orientada a objetos y representar sus relaciones mediante un diagrama UML. Se explicó la estructura de la clase abstracta BaseLogParser y la herencia de CSVLogParser y JSONLogParser. También se proporcionaron instrucciones para crear el archivo diagrama_clases.md, utilizar Mermaid Live Editor, generar la imagen PNG y organizar ambos archivos dentro de la carpeta docs.
+
+- Análisis Crítico:
+  
+  La elaboración del diagrama UML permite visualizar la organización interna del proyecto y comprender las relaciones entre sus clases. Sin embargo, es importante verificar que la representación gráfica coincida con la implementación real del código fuente. También se debe comprobar que los atributos, métodos y relaciones estén correctamente representados, evitando documentar elementos que no existan en la implementación.
+
+- Solución Final Aplicada:
+  
+  Se creó el archivo docs/diagrama_clases.md con el código Mermaid y se generó la representación gráfica docs/diagrama_clases.png. El diagrama documenta la clase abstracta BaseLogParser y sus dos clases derivadas, CSVLogParser y JSONLogParser, mostrando sus atributos, métodos y relaciones de herencia. Ambos archivos fueron incorporados al repositorio del proyecto.
+
+---
+
+Registro de Prompt #8
+
+- Fecha: 18/11/2026
+
+- Módulo/Función: Proyecto TI-Metrics — gestión de versiones y publicación de cambios del Hito 2 en GitHub.
+
+- Prompt Enviado:
+  
+  "Actúa como tutor de programación y control de versiones con Git y GitHub. Necesito que me guíes paso a paso para registrar y publicar los cambios realizados durante el desarrollo del Hito 2 de mi proyecto TI-Metrics. Explícame cómo utilizar los comandos git status, git add, git commit y git push desde la terminal de PyCharm. Ayúdame a identificar los archivos nuevos, modificados y pendientes de registrar, y explícame qué significa cada resultado que aparece en la terminal. Antes de realizar un commit o un push, quiero comprobar que los archivos correspondientes estén correctamente preparados. Mi objetivo es mantener actualizado el repositorio remoto y comprender el proceso de control de versiones."
+
+- Respuesta de la IA:
+  
+  La asistencia proporcionó instrucciones para utilizar Git desde la terminal de PyCharm. Se explicó cómo consultar el estado del repositorio mediante git status, preparar archivos específicos con git add, registrar los cambios utilizando git commit y publicarlos en GitHub mediante git push. También se interpretaron los resultados de cada comando para identificar cuándo los archivos estaban preparados y cuándo los cambios habían sido enviados correctamente al repositorio remoto.
+
+- Análisis Crítico:
+  
+  El control de versiones permite mantener un historial organizado de los cambios realizados en el proyecto y facilita su recuperación y seguimiento. No obstante, antes de ejecutar un commit o un push es necesario revisar los archivos que se van a incluir, verificar que no existan modificaciones pendientes y comprobar que las pruebas continúen funcionando. Los comandos deben utilizarse comprendiendo su finalidad y no únicamente copiándolos de manera automática.
+
+- Solución Final Aplicada:
+  
+  Se verificó el estado del repositorio mediante git status y se prepararon los siete archivos correspondientes a los cambios del Hito 2 utilizando git add. Posteriormente, se creó el commit con el mensaje "feat: completar refactorizacion POO - Hito 2". Finalmente, se ejecutó git push y se confirmó la publicación satisfactoria de los cambios en la rama main del repositorio GitHub de TI-Metrics.
+
+---
+
+Registro de Prompt #9
+
+- Fecha: 18/11/2026
+
+- Módulo/Función: Proyecto TI-Metrics — ejecución, actualización y validación de pruebas automatizadas con pytest.
+
+- Prompt Enviado:
+  
+  "Actúa como tutor especializado en Python y pruebas automatizadas con pytest. Necesito que me ayudes a ejecutar y comprender las pruebas de mi proyecto TI-Metrics después de realizar la refactorización orientada a objetos del Hito 2. Explícame cómo utilizar el comando pytest -v, cómo interpretar los resultados PASSED y FAILED y cómo identificar los errores que puedan aparecer cuando se modifican las funciones originales para convertirlas en métodos de clases. Ayúdame a actualizar las pruebas para utilizar CSVLogParser y JSONLogParser y a incorporar una prueba que compruebe el encapsulamiento de la propiedad ruta_archivo. También necesito verificar que las pruebas de geolocalización y manejo de errores de conexión continúen funcionando."
+
+- Respuesta de la IA:
+  
+  La asistencia se centró en la ejecución e interpretación de las pruebas automatizadas mediante pytest. Se identificó la necesidad de actualizar las importaciones de los archivos de prueba debido al cambio de funciones independientes a clases orientadas a objetos. Se proporcionaron ejemplos para probar los métodos leer() de CSVLogParser y JSONLogParser, así como una prueba adicional para verificar que la propiedad ruta_archivo no pudiera modificarse directamente al no disponer de un setter. También se comprobó la continuidad de las pruebas relacionadas con el servicio de geolocalización y los errores de conexión.
+
+- Análisis Crítico:
+  
+  Las pruebas automatizadas permiten comprobar el comportamiento de los componentes después de una refactorización y detectar posibles errores de compatibilidad. Sin embargo, obtener un resultado PASSED no garantiza por sí solo que toda la arquitectura cumpla con los requisitos del proyecto. Es necesario revisar qué comportamiento verifica cada prueba, comprobar que las condiciones evaluadas sean adecuadas y complementar las pruebas con una revisión del código fuente y su ejecución.
+
+- Solución Final Aplicada:
+  
+  Se actualizaron las pruebas del archivo tests/test_parsers.py para trabajar con las nuevas clases CSVLogParser y JSONLogParser. Además, se incorporó test_encapsulamiento_ruta_archivo para comprobar la consulta de la ruta y la restricción de modificación mediante la propiedad. Se ejecutó pytest -v y se obtuvo un resultado final de cinco pruebas superadas, incluyendo las pruebas de parsers, encapsulamiento, geolocalización y manejo de errores de conexión.
+
+---
+
+Registro de Prompt #10
+
+- Fecha: 18/11/2026
+
+- Módulo/Función: Proyecto TI-Metrics — revisión, análisis y comprobación del código fuente después de la refactorización POO.
+
+- Prompt Enviado:
+  
+  "Actúa como tutor especializado en Python, programación orientada a objetos y análisis de código. Necesito que me ayudes a revisar los cambios realizados en mi proyecto TI-Metrics durante el Hito 2. Explícame cómo comprobar que la clase abstracta BaseLogParser, las clases CSVLogParser y JSONLogParser y sus respectivos métodos estén correctamente implementados. Ayúdame a identificar y comprender la aplicación de abstracción, herencia, encapsulamiento y polimorfismo en el código. También necesito verificar que main.py continúe generando las métricas y el reporte JSON correctamente después de la refactorización. Utiliza comandos de terminal para comprobar la ejecución del proyecto y explícame los resultados obtenidos. Mi objetivo es verificar la coherencia entre la implementación, las pruebas y los requisitos del hito, además de comprender el código para mi defensa oral."
+
+- Respuesta de la IA:
+  
+  La asistencia permitió revisar la estructura de las clases y comprender la aplicación de los principios de programación orientada a objetos. Se explicó la responsabilidad de BaseLogParser como clase abstracta, la herencia de las clases especializadas y el comportamiento de sus métodos leer(). También se trabajó en la aplicación del polimorfismo desde main.py, utilizando una colección de objetos parsers que ejecutan el mismo método con implementaciones diferentes. Finalmente, se utilizaron comandos de terminal para comprobar la ejecución del programa y la continuidad de sus resultados.
+
+- Análisis Crítico:
+  
+  La revisión del código permite comprobar que la refactorización mantenga las funcionalidades originales y que los principios de POO estén aplicados de forma coherente. Es importante diferenciar los conceptos teóricos de su implementación práctica: la existencia de clases no demuestra por sí sola el uso correcto de la abstracción o el polimorfismo. Por ello, se deben analizar las relaciones entre clases, sus responsabilidades, los métodos implementados y los resultados obtenidos durante la ejecución.
+
+- Solución Final Aplicada:
+  
+  Se revisó la implementación de BaseLogParser, CSVLogParser y JSONLogParser, y se modificó main.py para trabajar con una lista de objetos parsers y ejecutar el método leer() de manera polimórfica. Posteriormente, se ejecutó python main.py y se verificó que el programa conservara los resultados: seis registros, dos errores HTTP 500, un porcentaje de errores del 33.33 %, tres eventos únicos y la identificación de la IP crítica 1.1.1.1. La comprobación se complementó con la ejecución de pytest -v, que finalizó con cinco pruebas superadas.
