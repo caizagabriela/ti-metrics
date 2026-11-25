@@ -2,16 +2,23 @@ import json
 from pathlib import Path
 from collections import Counter
 
-from src.parsers.csv_parser import leer_logs
-from src.parsers.json_parser import leer_eventos
+from src.parsers.csv_parser import CSVLogParser
+from src.parsers.json_parser import JSONLogParser
 from src.services.api_client import obtener_geolocalizacion
 
 
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
 
-logs = leer_logs(DATA_DIR / "logs.csv")
-eventos = leer_eventos(DATA_DIR / "events.json")
+parsers = [
+    CSVLogParser(DATA_DIR / "logs.csv"),
+    JSONLogParser(DATA_DIR / "events.json")
+]
+
+logs, eventos = [
+    parser.leer()
+    for parser in parsers
+]
 
 total_logs = len(logs)
 

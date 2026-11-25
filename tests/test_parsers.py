@@ -1,38 +1,32 @@
-import json
-
-from src.parsers.csv_parser import leer_logs
-from src.parsers.json_parser import leer_eventos
-
-
-def test_leer_logs(tmp_path):
-    archivo = tmp_path / "logs.csv"
-    archivo.write_text(
-        "timestamp,ip,usuario,metodo,ruta,estado\n"
-        "2026-10-01,8.8.8.8,Ana,GET,/login,500\n",
-        encoding="utf-8"
-    )
-
-    resultado = leer_logs(archivo)
-
-    assert len(resultado) == 1
-    assert resultado[0]["estado"] == 500
-    assert isinstance(resultado[0]["estado"], int)
+import pytest
+from src.parsers.csv_parser import CSVLogParser
+from src.parsers.json_parser import JSONLogParser
 
 
-def test_eliminar_eventos_duplicados(tmp_path):
-    archivo = tmp_path / "events.json"
-    eventos = [
-        {"event_id": 1, "tipo": "login"},
-        {"event_id": 1, "tipo": "login"},
-        {"event_id": 2, "tipo": "error"}
-    ]
+def test_leer_logs():
+    parser = CSVLogParser("data/logs.csv")
 
-    archivo.write_text(
-        json.dumps(eventos),
-        encoding="utf-8"
-    )
+    registros = parser.leer()
 
-    resultado = leer_eventos(archivo)
+    assert len(registros) == 6
+    assert isinstance(registros[0]["estado"], int)
 
-    assert len(resultado) == 2
-    assert [evento["event_id"] for evento in resultado] == [1, 2]
+
+def test_leer_eventos():
+    parser = JSONLogParser("data/events.json")
+
+    eventos = parser.leer()
+
+    assert len(eventos) == 3
+
+    ids = [evento["event_id"] for evento in eventos]
+
+    assert len(ids) == len(set(ids))
+
+def test_encapsulamiento_ruta_archivo():
+    parser = CSVLogParser("data/logs.csv")
+
+    assert parser.ruta_archivo == "data/logs.csv"
+
+    with pytest.raises(AttributeError):
+        parser.ruta_archivo = "otra_ruta.csv"

@@ -1,12 +1,21 @@
 import csv
+from src.parsers.base_parser import BaseLogParser
 
 
-def leer_logs(ruta_archivo):
-    with open(ruta_archivo, "r", encoding="utf-8", newline="") as archivo:
-        lector = csv.DictReader(archivo)
-        registros = list(lector)
+class CSVLogParser(BaseLogParser):
 
-    for registro in registros:
-        registro["estado"] = int(registro["estado"])
+    def leer(self):
+        with open(
+            self.ruta_archivo,
+            "r",
+            encoding="utf-8",
+            newline=""
+        ) as archivo:
 
-    return registros
+            lector = csv.DictReader(archivo)
+            registros = list(lector)
+
+        for registro in registros:
+            registro["estado"] = int(registro["estado"])
+
+        return registros
